@@ -3,535 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SYSTEMVAULT // 5-SLOT FRONTIER PROMPT COMPILER (v9.5)</title>
-  <meta name="description" content="Free Interactive 5-Slot Frontier AI Prompt Compiler for Gemini 4 Carbon, Claude Opus 5.5, Nano Banana 2.1, Midjourney v7, FLUX 3, Veo 3.1, Kling 3.0 Omni & Suno v6." />
+  <title>SystemVault — Interactive 5-Slot AI Prompt Command Center (Live Demo)</title>
+  <meta name="description" content="Tested prompt systems & interactive copy-paste vaults to get studio-grade outputs from AI tools in minutes." />
   <style>
     :root {
-      --limestone: #F4F2EC;
-      --limestone-dark: #E6E2D6;
-      --obsidian: #11141C;
-      --orange: #EA580C;
-      --orange-hover: #C2410C;
-      --white: #FFFFFF;
-      --muted: #52525B;
-      --emerald: #059669;
+      --bg: #090D16;
+      --card: #111827;
+      --border: #1F2937;
+      --text: #F9FAFB;
+      --muted: #9CA3AF;
+      --emerald: #10B981;
+      --amber: #F59E0B;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
-      background-color: var(--limestone);
-      background-image:
-        linear-gradient(to right, rgba(17, 20, 28, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(17, 20, 28, 0.05) 1px, transparent 1px);
-      background-size: 48px 48px;
-      color: var(--obsidian);
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
       line-height: 1.5;
+      padding: 24px 16px 80px;
     }
-    /* Top Matte Obsidian Brand Bar */
-    .brand-bar {
-      background: var(--obsidian);
-      color: var(--white);
-      border-bottom: 4px solid var(--orange);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .brand-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 0.04em;
-    }
-    .orange-square {
-      width: 16px;
-      height: 16px;
-      background: var(--orange);
-      display: inline-block;
-    }
-    .brand-right {
-      font-size: 12px;
-      font-weight: 700;
-      color: #D4D4D8;
-      letter-spacing: 0.06em;
-    }
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 36px 20px 80px;
-    }
-    .pill-badge {
-      display: inline-block;
-      background: var(--orange);
-      color: var(--white);
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      padding: 6px 14px;
-      border-radius: 4px;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-    h1 span {
-      color: var(--orange);
-    }
-    .subtitle {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 17px;
-      max-width: 780px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-    .swiss-card {
-      background: var(--white);
-      border: 2px solid var(--obsidian);
+    .container { max-width: 1120px; margin: 0 auto; }
+    .top-banner {
+      background: linear-gradient(90deg, rgba(16,185,129,0.14), rgba(245,158,11,0.14));
+      border: 1px solid rgba(16,185,129,0.4);
       border-radius: 10px;
-      box-shadow: 6px 6px 0px var(--obsidian);
-      overflow: hidden;
-    }
-    .card-header {
-      background: var(--obsidian);
-      color: var(--white);
       padding: 14px 20px;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: 0.05em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .card-body {
-      padding: 22px;
-    }
-    label {
-      display: block;
-      font-weight: 800;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 8px;
-    }
-    select, textarea, input[type="text"] {
-      width: 100%;
-      padding: 12px 14px;
-      border: 2px solid var(--obsidian);
-      border-radius: 6px;
-      background: var(--limestone);
-      color: var(--obsidian);
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-    select:focus, textarea:focus, input[type="text"]:focus {
-      outline: none;
-      border-color: var(--orange);
-      background: var(--white);
-    }
-    .preset-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
     }
-    .chip {
-      background: var(--limestone);
-      border: 1.5px solid var(--obsidian);
-      border-radius: 4px;
-      padding: 5px 10px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .chip:hover {
-      background: var(--obsidian);
-      color: var(--white);
-    }
-    .btn-compile {
-      width: 100%;
-      background: var(--orange);
-      color: var(--white);
-      border: 2px solid var(--obsidian);
-      border-radius: 6px;
-      padding: 15px 20px;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 4px 4px 0px var(--obsidian);
-      transition: transform 0.1s ease;
-    }
-    .btn-compile:hover {
-      background: var(--orange-hover);
-      transform: translate(-1px, -1px);
-    }
-    .slot-breakdown {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .slot-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      background: var(--limestone);
-      border: 1.5px solid var(--obsidian);
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 13px;
-    }
-    .slot-num {
-      background: var(--orange);
-      color: var(--white);
-      font-weight: 900;
-      font-size: 11px;
-      padding: 3px 7px;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    .output-box {
-      background: var(--obsidian);
-      color: #F8FAFC;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
       border-radius: 8px;
-      padding: 16px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 13.5px;
-      line-height: 1.55;
-      white-space: pre-wrap;
-      margin-bottom: 14px;
-      border: 2px solid var(--obsidian);
-    }
-    .btn-copy {
-      width: 100%;
-      background: var(--obsidian);
-      color: var(--white);
-      border: 2px solid var(--obsidian);
-      border-radius: 6px;
-      padding: 12px 16px;
+      font-weight: 700;
       font-size: 14px;
-      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.95; }
+    .btn-emerald { background: var(--emerald); color: #052E16; }
+    .btn-amber { background: var(--amber); color: #111827; }
+    .hero { margin-bottom: 28px; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    .hero h1 { font-size: clamp(24px, 4vw, 38px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .hero p { color: var(--muted); font-size: 16px; max-width: 780px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+    .search-input {
+      flex: 1 1 260px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
     }
-    .btn-copy.copied {
-      background: var(--emerald);
-      border-color: var(--emerald);
-    }
-    /* CTA Section */
-    .cta-grid {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 780px) {
-      .cta-grid { grid-template-columns: 1fr; }
-    }
-    .cta-card {
-      background: var(--white);
-      border: 2px solid var(--obsidian);
+    .pill.active { background: var(--emerald); color: #052E16; border-color: var(--emerald); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 24px;
-      box-shadow: 6px 6px 0px var(--obsidian);
+      padding: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 14px;
     }
-    .cta-card.flagship {
-      background: var(--obsidian);
-      color: var(--white);
-    }
-    .cta-tag {
+    .card.locked { border-color: rgba(245,158,11,0.28); cursor: pointer; }
+    .badge {
       display: inline-block;
       font-size: 11px;
-      font-weight: 900;
-      padding: 4px 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
       border-radius: 4px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      width: fit-content;
+      letter-spacing: 0.04em;
     }
-    .cta-card h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      font-weight: 900;
-    }
-    .cta-card p {
-      margin: 0 0 18px;
-      font-size: 14.5px;
-      opacity: 0.9;
-    }
-    .cta-link {
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 900;
-      font-size: 14px;
-      padding: 14px 18px;
+    .badge-unlocked { background: rgba(16,185,129,0.18); color: #34D399; }
+    .badge-locked { background: rgba(245,158,11,0.18); color: #FBBF24; }
+    .code-box {
+      background: #06090F;
+      border: 1px solid #1E293B;
       border-radius: 6px;
-      border: 2px solid var(--obsidian);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+      padding: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      color: #E2E8F0;
+      white-space: pre-wrap;
     }
-    .cta-link.free {
-      background: var(--limestone);
-      color: var(--obsidian);
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 999;
     }
-    .cta-link.free:hover {
-      background: var(--orange);
-      color: var(--white);
+    .modal {
+      background: #111827;
+      border: 2px solid var(--amber);
+      border-radius: 14px;
+      max-width: 560px;
+      width: 100%;
+      padding: 28px;
     }
-    .cta-link.bundle {
-      background: var(--orange);
-      color: var(--white);
-      border-color: var(--white);
-    }
+    .modal h2 { font-size: 22px; margin-bottom: 10px; }
+    .modal p { color: var(--muted); font-size: 14.5px; margin-bottom: 18px; }
+    .modal-actions { display: flex; flex-direction: column; gap: 12px; }
   </style>
 </head>
 <body>
-  <header class="brand-bar">
-    <div class="brand-left">
-      <span class="orange-square"></span>
-      <span>SYSTEMVAULT // 5-SLOT FRONTIER PROMPT COMPILER (v9.5)</span>
-    </div>
-    <div class="brand-right">SWISS-EDITORIAL ARCHITECTURE // FIRST 15% TOKEN LOCK</div>
-  </header>
-
-  <main class="container">
-    <div class="pill-badge">FREE INTERACTIVE ARCHITECT TOOL • OCTOBER/NOVEMBER 2026 FRONTIER SPEC</div>
-    <h1>Compile Rough Ideas Into <span>5-Slot Frontier Prompts</span> in 1 Click.</h1>
-    <p class="subtitle">
-      Diffusion, audio, video, and reasoning transformers weight the <strong>first 15% of your tokens</strong> heaviest. Select your target frontier engine below, enter your rough idea, and compile a deterministic 5-slot prompt + anti-slop guardrails.
-    </p>
-
-    <div class="grid">
-      <!-- Left: Compiler Input -->
-      <section class="swiss-card">
-        <div class="card-header">
-          <span>01 // CONFIGURE TARGET FRONTIER ENGINE</span>
-          <span style="color: var(--orange);">INPUT SPEC</span>
-        </div>
-        <div class="card-body">
-          <label for="engineSelect">1. Select Target AI Engine Architecture</label>
-          <select id="engineSelect" onchange="updateEngineHints()">
-            <option value="llm">Gemini 4 Carbon / Claude Opus 5.5 / GPT-6 Astra (Reasoning &amp; Anti-Slop Copy)</option>
-            <option value="image">Nano Banana 2.1 / Midjourney v7 / FLUX 3 (Optical Photorealism &amp; Design)</option>
-            <option value="video">Veo 3.1 / Kling 3.0 Omni (Cinematic Camera Rig &amp; Physics Lock)</option>
-            <option value="audio">Suno v6 Studio Audio (Era/Subgenre + Analog Tape &amp; Vocal Mic Spec)</option>
-          </select>
-
-          <label>Quick-Load High-Converting Presets</label>
-          <div class="preset-chips" id="presetContainer"></div>
-
-          <label for="rawIdea">2. Enter Your Rough Idea, Topic, or Scene</label>
-          <textarea id="rawIdea" rows="4" placeholder="e.g., Write a high-converting landing page for an AI automation agency targeting B2B founders...">Write a high-converting technical teardown article explaining how solo founders automate client onboarding in 15 minutes</textarea>
-
-          <label for="customConstraint">3. Optional Specific Constraint / Vibe Anchor</label>
-          <input type="text" id="customConstraint" placeholder="e.g., 8th-grade reading level, Kodak Portra 400, 108 BPM analog tape, 50mm Cooke Anamorphic..." />
-
-          <button class="btn-compile" onclick="compilePrompt()">⚡ COMPILE 5-SLOT ARCHITECT PROMPT</button>
-        </div>
-      </section>
-
-      <!-- Right: Compiled Output -->
-      <section class="swiss-card">
-        <div class="card-header">
-          <span>02 // COMPILED 5-SLOT PROMPT + NEGATIVE GUARDRAILS</span>
-          <span style="color: #34D399;">READY TO PASTE</span>
-        </div>
-        <div class="card-body">
-          <label>First-15% Token Conditioning Breakdown</label>
-          <div class="slot-breakdown" id="slotBreakdown"></div>
-
-          <label>Compiled Copy-Paste Prompt + Negative Slop Guardrails</label>
-          <div class="output-box" id="compiledOutput"></div>
-
-          <button class="btn-copy" id="copyBtn" onclick="copyCompiledPrompt()">📋 COPY COMPILED 5-SLOT PROMPT</button>
-        </div>
-      </section>
+  <div class="container">
+    <div class="top-banner">
+      <div>
+        <strong>⚡ LIVE INTERACTIVE PREVIEW:</strong> Test 5 Unlocked 5-Slot Blueprints below (or unlock all 65+ Prompts + Offline App + <code>.md</code> Context Pack).
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-emerald" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-free-sample" target="_blank">Download Free 6-Page Cheat Sheet ($0) →</a>
+        <a class="btn btn-amber" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-bundle/ARCHITECT20" target="_blank">Unlock 4-in-1 Master Vault ($23.20 w/ ARCHITECT20) →</a>
+      </div>
     </div>
 
-    <!-- Bottom CTA Cards -->
-    <section class="cta-grid">
-      <div class="cta-card">
-        <div>
-          <span class="cta-tag" style="background: var(--obsidian); color: var(--white);">EDITION 01 // FREE DOWNLOAD ($0)</span>
-          <h3>Grab the Free 6-Page 5-Part Formula Cheat Sheet</h3>
-          <p>Want the printable Universal 5-Slot Token Matrix + 20 battle-tested prompts across Gemini 4 Carbon, Claude Opus 5.5, Midjourney v7, Veo 3.1 &amp; Suno v6 on your desk?</p>
-        </div>
-        <a class="cta-link free" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-free-sample" target="_blank" rel="noopener">
-          Download Free 6-Page Sample ($0) →
-        </a>
-      </div>
+    <div class="hero">
+      <h1>SystemVault — 5-Slot AI Prompt Command Center</h1>
+      <p>Tested prompt systems &amp; interactive copy-paste vaults to get studio-grade outputs from AI tools in minutes. Filter by capability pillar below and click Copy to test right now.</p>
+    </div>
 
-      <div class="cta-card flagship">
-        <div>
-          <span class="cta-tag" style="background: var(--orange); color: var(--white);">EDITION 03 // 4-IN-1 MASTER BUNDLE (20% OFF)</span>
-          <h3>Unlock All 65+ Blueprints + Offline Web App + Markdown &amp; CSV Vault</h3>
-          <p>Get the complete offline <code>vault.html</code> app, 65+ Notion/CSV Master Database, 22-Page Field Playbook PDF, and <code>prompts_context_pack.md</code> for Claude Projects &amp; Gemini Gems.</p>
-        </div>
-        <a class="cta-link bundle" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-bundle/ARCHITECT20" target="_blank" rel="noopener">
-          Claim 4-in-1 Master Bundle (20% Off Auto-Applied) →
-        </a>
+    <div class="controls">
+      <input id="searchBox" class="search-input" type="text" placeholder="Search 65+ blueprints (e.g. cold email, macro, dolly, analog tape, JSON)..." oninput="renderCards()" />
+      <button class="pill active" onclick="setPillar('ALL', this)">All 65 Blueprints</button>
+      <button class="pill" onclick="setPillar('Frontier Reasoning & Writing AI', this)">Reasoning &amp; Writing</button>
+      <button class="pill" onclick="setPillar('Photorealistic Image AI', this)">Photorealistic Image</button>
+      <button class="pill" onclick="setPillar('Cinematic Video AI', this)">Cinematic Video</button>
+      <button class="pill" onclick="setPillar('Studio Music & Audio AI', this)">Studio Audio</button>
+    </div>
+
+    <div id="cardsGrid" class="grid"></div>
+  </div>
+
+  <div id="upgradeModal" class="modal-backdrop" onclick="if(event.target===this)closeModal()">
+    <div class="modal">
+      <span class="badge badge-locked" style="margin-bottom:10px;">🔒 Pro Vault Blueprint</span>
+      <h2 id="modalTitle">Unlock All 65+ 5-Slot Prompt Blueprints</h2>
+      <p>This blueprint is part of the <strong>SystemVault 4-in-1 AI Prompt Architect Master Vault</strong>. Grab the 6-Page Formula Cheat Sheet for <strong>$0</strong> right now, or unlock the complete 65+ Offline Web App (<code>vault.html</code>), drop-in AI Project Brain (<code>prompts_context_pack.md</code>), searchable CSV database, and 22-page Manual for <strong>20% Off ($23.20 with code ARCHITECT20)</strong>:</p>
+      <div class="modal-actions">
+        <a class="btn btn-emerald" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-free-sample" target="_blank">[Download the Free 6-Page Cheat Sheet ($0) →]</a>
+        <a class="btn btn-amber" href="https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-bundle/ARCHITECT20" target="_blank">[Unlock All 65+ Prompts + Offline Web App + .md Context Pack ($23.20 w/ ARCHITECT20) →]</a>
+        <button class="btn" style="background:#1F2937;color:#D1D5DB;" onclick="closeModal()">Continue Testing Free Demo</button>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <script>
-    const ENGINE_DATA = {
-      llm: {
-        presets: [
-          { label: "B2B Authority Article", idea: "Write an 80/20 technical teardown showing B2B founders how to cut SaaS churn by 32% using automated onboarding", spec: "Include concrete metrics, 3-step implementation table, 8th-grade punchiness" },
-          { label: "PAS Sales Page", idea: "High-converting Gumroad sales page for a Notion Freelance Operating System priced at $39", spec: "Apply Hormozi Value Equation + Cialdini Reciprocity + 5-second StoryBrand headline" },
-          { label: "Claude Project System Prompt", idea: "Act as a Principal Staff Engineer reviewing Python and TypeScript pull requests for security and latency bottlenecks", spec: "Output severity matrix + exact drop-in diff patches" }
-        ],
-        compile: (idea, spec) => {
-          const extra = spec ? ` (${spec})` : " (concrete practitioner metrics, zero filler)";
-          const slots = [
-            ["SLOT 1: PRACTITIONER ROLE", `Principal Direct-Response & Technical Systems Architect with 12+ years of verified production execution.`],
-            ["SLOT 2: CONCRETE RECEIPTS", `Task Target: "${idea}"${extra}. Anchor every claim in specific numbers, mechanisms, and verifiable workflows.`],
-            ["SLOT 3: STRUCTURAL BLUEPRINT", `1) Contrarian Challenger Reframe -> 2) 3-Step Mechanism Breakdown -> 3) Copy-Paste Execution Checklist.`],
-            ["SLOT 4: ANTI-SLOP LEXICON LOCK", `STRICT NEGATIVE GUARDRAILS: Ban the words delve, tapestry, testament, realm, embark, game-changer, unleash, elevate, moreover, in conclusion.`],
-            ["SLOT 5: SELF-CRITIQUE GATE", `Score draft 1–10 on specificity and rhythm; output only the final 10/10 rewritten version at an 8th-grade reading level.`]
-          ];
-          const full = `[SLOT 1 — PRACTITIONER CALIBRATION]\nOperate as a Principal Systems Architect & Direct-Response Strategist.\n\n[SLOT 2 — CONCRETE INPUT RECEIPTS]\nExecute the following objective with concrete numbers and zero hand-waving: ${idea}${extra}.\n\n[SLOT 3 — SECTION-BY-SECTION BLUEPRINT]\nStructure output into: (1) Contrarian 2-sentence Challenger Reframe exposing why 95% of standard approaches fail, (2) Quantified 3-Step Execution Matrix, and (3) Immediate 60-Second Action Template.\n\n[SLOT 4 — NEGATIVE SLOP GUARDRAILS]\nBANNED TOKENS: Never use "delve", "tapestry", "testament", "moreover", "game-changer", "unleash", "elevate", "symphony", or "in today's fast-paced world". Use active voice and short punchy paragraphs.\n\n[SLOT 5 — VERIFICATION RUBRIC]\nSilently audit your response against Slots 1–4; output only the final publication-ready master draft.`;
-          return { slots, full };
-        }
-      },
-      image: {
-        presets: [
-          { label: "Editorial Founder Portrait", idea: "Minimalist studio portrait of a tech founder wearing brushed titanium glasses", spec: "Hasselblad H6D-100c 80mm f/2.8, Kodak Portra 400, north-window key light" },
-          { label: "3D Swiss Product Packaging", idea: "Matte obsidian and signal orange modular hardware synthesizer on warm limestone desk", spec: "90mm tilt-shift macro lens, soft overhead scrim diffuser, micro-anodized aluminum grain" },
-          { label: "Architectural Interior", idea: "Brutalist concrete and warm walnut library overlooking misty Nordic fjord at dawn", spec: "Leica SL2-S 24mm f/4, natural volumetric morning light" }
-        ],
-        compile: (idea, spec) => {
-          const optical = spec || "shot on Hasselblad H6D-100c 80mm f/2.8 lens, Kodak Portra 400 film stock";
-          const slots = [
-            ["SLOT 1: SUBJECT & FRAMING", `Eye-level editorial framing: ${idea}`],
-            ["SLOT 2: CAMERA & FILM STOCK", optical],
-            ["SLOT 3: KEY & NEGATIVE FILL", `Directional softbox key light at 45 degrees with deep matte-black negative fill on camera left for authentic shadow roll-off`],
-            ["SLOT 4: MICRO-SURFACE TEXTURE", `Tactile surface micro-imperfections, natural pores, authentic material grain, zero plastic smoothing`],
-            ["SLOT 5: NEGATIVE & RAW FLAGS", `--no CGI plastic sheen, oversaturated neon glow, airbrushed skin, watermark, deformed hands --ar 16:9 --style raw`]
-          ];
-          const full = `${idea}, eye-level editorial composition, ${optical}, directional soft key light with deep negative fill on camera left for high-contrast shadow roll-off, tactile surface micro-texture and natural material grain, subtle halation, photorealistic optical depth of field --no plastic skin, CGI gloss, oversaturated neon, airbrushed artifacts, text watermark --ar 16:9 --style raw`;
-          return { slots, full };
-        }
-      },
-      video: {
-        presets: [
-          { label: "240fps Macro Product Pour", idea: "Dark roasted espresso streaming into a fluted glass cup on a warm limestone counter", spec: "240fps Phantom Flex4K macro slider push-in, 50mm Cooke Anamorphic T2.3" },
-          { label: "Russian-Arm Tracking Shot", idea: "Matte black vintage Porsche 911 carving through wet alpine pass at blue hour", spec: "Low-angle Russian-arm gimbal tracking at 60mph, 35mm Arri Master Prime T1.3" },
-          { label: "One-Take Studio Reveal", idea: "Mechanical watch escapement gears rotating in extreme macro as warm rim light sweeps across brass teeth", spec: "Laowa 24mm f/14 Probe Lens, motorized motion-control dolly" }
-        ],
-        compile: (idea, spec) => {
-          const rig = spec || "240fps Phantom Flex4K motorized macro slider push-in, 50mm Cooke Anamorphic T2.3 lens";
-          const slots = [
-            ["SLOT 1: CAMERA RIG & MOTION", rig],
-            ["SLOT 2: LENS & APERTURE LOCK", `Locked focal plane with natural anamorphic bokeh and zero focal breathing`],
-            ["SLOT 3: SINGLE CONTINUOUS ACTION", `${idea} in one uninterrupted continuous motion`],
-            ["SLOT 4: DIRECTIONAL LIGHTING", `Golden-hour tungsten rim light cutting through atmospheric haze with high-contrast specular highlights`],
-            ["SLOT 5: PHYSICS & ANTI-MORPH LOCK", `Accurate Newtonian fluid/rigid-body physics, temporal frame consistency, NEGATIVE: zero morphing, zero camera drift, zero rubbery limbs`]
-          ];
-          const full = `${rig}, ${idea} in one single continuous uninterrupted motion, golden tungsten rim light with volumetric atmospheric depth and crisp specular highlights, accurate physical momentum and surface tension, locked temporal consistency --negative morphing objects, warping geometry, flickering textures, sudden camera cuts, unnatural rubbery motion`;
-          return { slots, full };
-        }
-      },
-      audio: {
-        presets: [
-          { label: "1977 Analog West Coast Groove", idea: "Breezy nocturnal soft-rock driving track with warm electric piano and raspy baritone vocals", spec: "106 BPM, Wurlitzer + fretless bass + brushed snare, 2-inch Studer tape saturation" },
-          { label: "Cinematic Dark Synthwave", idea: "High-tension cyberpunk chase score with analog Moog sub-bass and brass swells", spec: "118 BPM, Prophet-5 arpeggio + gated reverb acoustic drums, Neve 1073 console warmth" },
-          { label: "Intimate Acoustic Folk", idea: "Late-nightcampfire fingerstyle guitar ballad with close-mic breathy alto vocals", spec: "84 BPM, Martin D-28 acoustic + upright bass + cello, Neumann U47 tube mic" }
-        ],
-        compile: (idea, spec) => {
-          const tape = spec || "106 BPM, 2-inch Studer A800 analog tape saturation, dry studio room acoustics";
-          const slots = [
-            ["SLOT 1: ERA & SUBGENRE ANCHOR", `Authentic studio era/subgenre framing for: ${idea}`],
-            ["SLOT 2: MOOD & DYNAMIC ARC", `Dynamic verse-to-chorus headroom with organic human groove and micro-timing`],
-            ["SLOT 3: 2–4 SPECIFIC INSTRUMENTS", `Warm Wurlitzer electric piano, articulate fretless bass, crisp brushed snare, analog guitar swells`],
-            ["SLOT 4: VOCAL MIC & REGISTER", `Close-mic Neumann U47 tube condenser vocal presence, natural breath detail, zero robotic autotune`],
-            ["SLOT 5: BPM & ANALOG TAPE SPEC", `${tape} | NEGATIVE: no muddy reverb wash, no harsh digital clipping, no copyrighted artist names`]
-          ];
-          const full = `${idea}, warm Wurlitzer electric piano, articulate bassline, crisp brushed acoustic drums, close-mic Neumann U47 tube vocal texture with natural breath dynamics, ${tape}, wide stereo analog console mix --no muddy digital reverb, harsh high-frequency artifacts, robotic autotune`;
-          return { slots, full };
-        }
-      }
-    };
+    const PROMPTS = [{"id": "PROMPT-01", "pillar": "Frontier Reasoning & Writing AI", "title": "B2B Challenger Cold Outreach Architect", "unlocked": true, "prompt": "[1. Practitioner Calibration]: Operate as a Principal B2B Challenger Revenue Architect.\n[2. Input Receipts]: Prospect bottleneck: [INSERT BOTTLENECK]; Quantified cost of inaction: [INSERT METRIC].\n[3. Section Blueprint]: Sentence 1 = Quantified bottleneck observation; Sentence 2 = 5-Slot mechanism proof; Sentence 3 = Low-friction binary ask.\n[4. Negative Guardrails]: Ban 'I hope this finds you well', 'touching base', and robotic transitions.\n[5. 10/10 Verification Gate]: Strictly <= 65 words, 6th-grade reading ease, zero exclamation marks."}, {"id": "PROMPT-02", "pillar": "Frontier Reasoning & Writing AI", "title": "Executive 1-Page Board & Strategy Memo", "unlocked": true, "prompt": "[1. Practitioner Calibration]: Act as a Chief Strategy Officer and Turnaround Operator.\n[2. Input Receipts]: Operational telemetry and constraints: [INSERT 3 KEY METRICS & BUDGET].\n[3. Section Blueprint]: (A) 2-Sentence Executive Thesis, (B) Quantified Option Trade-Off Matrix, (C) Single Recommended Path + 72-Hour First Milestone.\n[4. Negative Guardrails]: Ban delve, tapestry, testament, realm, game-changer, unleash, elevate, moreover, in conclusion.\n[5. 10/10 Verification Gate]: Every recommendation must tie to a falsifiable metric."}, {"id": "PROMPT-03", "pillar": "Photorealistic Image AI", "title": "Medium-Format Editorial Founder Portrait Lock", "unlocked": true, "prompt": "[1. Framing & Subject]: Chest-up editorial founder portrait in a warm architectural limestone studio.\n[2. Optical Hardware]: Shot on medium-format 80mm f/2.8 analog portrait prime lens, subtle daylight film grain.\n[3. Studio Lighting]: Overhead diffused silk scrim key light with deep black negative fill on camera left (4:1 contrast ratio).\n[4. Micro-Texture]: Natural skin pores, brushed titanium watch bezel, heavyweight merino knit weave.\n[5. Negative Lock]: --no plastic wax skin, airbrushed CGI sheen, neon rim lighting --ar 16:9 --style raw"}, {"id": "PROMPT-04", "pillar": "Cinematic Video AI", "title": "Motorized Macro Dolly Commercial Product Reveal", "unlocked": true, "prompt": "[1. Camera Rig & Vector]: Slow motorized macro dolly push-in at 0.2m/s along a locked horizontal rail.\n[2. Cinema Optics]: 50mm anamorphic prime at T2.8, 24fps, 180-degree shutter motion blur.\n[3. Continuous 5-Second Action]: Cold condensation beads on a matte glass bottle as warm espresso crema pours continuously into a ceramic cup.\n[4. Lighting & Atmosphere]: Warm tungsten morning backlight through walnut blinds, realistic volumetric steam.\n[5. Temporal Lock]: Single continuous unedited shot; zero cuts, zero morphing geometry, constant focal plane."}, {"id": "PROMPT-05", "pillar": "Studio Music & Audio AI", "title": "1970s Dead-Room Analog Rhodes & Tape Pocket", "unlocked": true, "prompt": "[1. Studio Era & Room]: Late-1970s dead-room analog studio with warm wood-panel damping.\n[2. Pocket & Harmonic Spec]: 92 BPM, 4/4 swung sixteenth-note pocket, F minor 9th progression.\n[3. 3-Instrument Cap]: Suitcase Fender Rhodes with stereo tremolo, foam-muted flatwound Precision bass, dry close-miked vintage kit.\n[4. Signal Chain & Tape]: Neve 1073 preamps onto 2-inch magnetic tape at 15 IPS, -14 LUFS dynamic headroom.\n[5. Negative Sonic Guardrails]: No harsh digital synth leads, no muddy cavern reverb, no brickwall clipping."}, {"id": "PROMPT-06", "pillar": "Frontier Reasoning & Writing AI", "title": "Competitor 1-Star Defect Review Miner & Feature Matrix", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-07", "pillar": "Frontier Reasoning & Writing AI", "title": "High-Converting SaaS Onboarding 5-Email Retention Sequence", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-08", "pillar": "Frontier Reasoning & Writing AI", "title": "Challenger Sales Objection Reframe & Rational Drowning Script", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-09", "pillar": "Frontier Reasoning & Writing AI", "title": "Blameless Incident Post-Mortem & Root-Cause Five-Whys Compiler", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-10", "pillar": "Frontier Reasoning & Writing AI", "title": "Direct-Response Landing Page Hero & Value Equation Stack", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-11", "pillar": "Frontier Reasoning & Writing AI", "title": "Deterministic RFC-8259 JSON Schema Extractor Engine", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-12", "pillar": "Frontier Reasoning & Writing AI", "title": "Principal AppSec & Concurrency Race-Condition Code Auditor", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-13", "pillar": "Frontier Reasoning & Writing AI", "title": "Turnkey Delegation SOP & Definition-of-Done Runbook Builder", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-14", "pillar": "Frontier Reasoning & Writing AI", "title": "Pricing Tier & Good-Better-Best Decoy Anchoring Architect", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-15", "pillar": "Frontier Reasoning & Writing AI", "title": "SQL Query Plan Optimizer & Index Bottleneck Diagnostic", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-16", "pillar": "Frontier Reasoning & Writing AI", "title": "Investor Update & Unit-Economics Board Deck Narrative", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-17", "pillar": "Frontier Reasoning & Writing AI", "title": "Customer Churn Exit-Interview Synthesizer & Winback Offer", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-18", "pillar": "Frontier Reasoning & Writing AI", "title": "Zero-Noise Markdown (.md) Project Context Pack Compiler", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-19", "pillar": "Frontier Reasoning & Writing AI", "title": "Viral Contrarian LinkedIn & X Multi-Channel Thread Architect", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-20", "pillar": "Frontier Reasoning & Writing AI", "title": "Adversarial Red-Team Pre-Mortem Plan Stress-Tester", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-21", "pillar": "Photorealistic Image AI", "title": "90mm Tilt-Shift Luxury Chronograph Tabletop Macro Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-22", "pillar": "Photorealistic Image AI", "title": "Architectural Brutalist Concrete & Warm Tungsten Interior", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-23", "pillar": "Photorealistic Image AI", "title": "Isometric 30-Degree Matte Hardware Monolith Studio Render", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-24", "pillar": "Photorealistic Image AI", "title": "Multi-Shot Consistent Brand Character Optical DNA Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-25", "pillar": "Photorealistic Image AI", "title": "Editorial Culinary Overhead Scrim & Specular Micro-Texture", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-26", "pillar": "Photorealistic Image AI", "title": "Botanical Glass Skincare Bottle Caustics & Refraction Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-27", "pillar": "Photorealistic Image AI", "title": "Documentary Street 35mm Analog Tri-X Grain & Shadow Matrix", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-28", "pillar": "Photorealistic Image AI", "title": "Swiss-Editorial High-Contrast Typography & Grid Poster Base", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-29", "pillar": "Photorealistic Image AI", "title": "Industrial Titanium Consumer Hardware Exploded View Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-30", "pillar": "Photorealistic Image AI", "title": "Automotive Rolling Shot 1/30s Panning Motion Blur Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-31", "pillar": "Photorealistic Image AI", "title": "Minimalist Nordic Ceramic & Linen Daylight Catalog Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-32", "pillar": "Photorealistic Image AI", "title": "Macro Circuit Board Gold-Trace & Shallow Depth-of-Field", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-33", "pillar": "Photorealistic Image AI", "title": "High-Fashion Studio Rim-Light & Velvet Negative-Fill Portrait", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-34", "pillar": "Photorealistic Image AI", "title": "Artisanal Coffee Packaging Matte Foil & Kraft Paper Texture", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-35", "pillar": "Photorealistic Image AI", "title": "Aerospace Carbon-Fiber Composite Weave Macro Inspection", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-36", "pillar": "Cinematic Video AI", "title": "Low-Angle Steadicam Rain-Slicked Colonnade Tracking Shot", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-37", "pillar": "Cinematic Video AI", "title": "Technocrane Reveal Through Sunlit Industrial Warehouse", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-38", "pillar": "Cinematic Video AI", "title": "240fps High-Speed Phantom Flex Liquid Splash Physics Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-39", "pillar": "Cinematic Video AI", "title": "Anamorphic 35mm Car Interior Night Dashboard Bokeh Drive", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-40", "pillar": "Cinematic Video AI", "title": "Locked-Off Tripod Architectural Time-Lapse Shadow Sweep", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-41", "pillar": "Cinematic Video AI", "title": "FPV Single-Vector Smooth Gliding Atrium Fly-Through", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-42", "pillar": "Cinematic Video AI", "title": "Close-Up Artisan Watchmaker Tweezers Micro-Assembly Take", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-43", "pillar": "Cinematic Video AI", "title": "Over-the-Shoulder Developer Dual-Monitor Terminal Reveal", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-44", "pillar": "Cinematic Video AI", "title": "Aerial Cable-Cam Coastal Cliff Golden-Hour Tracking Shot", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-45", "pillar": "Cinematic Video AI", "title": "Studio Turntable 360-Degree Matte Sneaker Rim-Lit Orbit", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-46", "pillar": "Cinematic Video AI", "title": "Subtle Rack-Focus From Foreground Espresso Cup to Founder", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-47", "pillar": "Cinematic Video AI", "title": "Slow-Motion Sparks & Brushed Metal CNC Milling Pass", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-48", "pillar": "Cinematic Video AI", "title": "Handheld Documentary Chef Plating With Rising Steam Physics", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-49", "pillar": "Cinematic Video AI", "title": "Underwater Optical Housing Sun-Ray Refraction Slow Push", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-50", "pillar": "Cinematic Video AI", "title": "Minimalist Desk Setup Morning Blind Shadow Reveal Dolly", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-51", "pillar": "Studio Music & Audio AI", "title": "Nordic Chamber Felt Piano & Sul Tasto Cello Documentary Score", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-52", "pillar": "Studio Music & Audio AI", "title": "Analog Moog Sub-Bass & Crisp 12-Bit SP-1200 Boom-Bap Pocket", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-53", "pillar": "Studio Music & Audio AI", "title": "Warm Acoustic Fingerpicked Mahogany Guitar Close-Mic Ribbon", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-54", "pillar": "Studio Music & Audio AI", "title": "Cinematic Tension Pulse \u2014 Polyrhythmic Modular Arpeggio", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-55", "pillar": "Studio Music & Audio AI", "title": "1960s Motown Direct-Box P-Bass & Tambourine Backbeat", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-56", "pillar": "Studio Music & Audio AI", "title": "Ambient Tape-Loop Eno-Style Generative Pad & Room Decay", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-57", "pillar": "Studio Music & Audio AI", "title": "Executive Podcast Intro \u2014 8-Bar Punchy Analog Brass & Bass", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-58", "pillar": "Studio Music & Audio AI", "title": "Late-Night Jazz Trio \u2014 Upright Bass, Brushes & Hollowbody", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-59", "pillar": "Studio Music & Audio AI", "title": "High-Tech Product Launch Reveal \u2014 Clean Sub Drop & Glass Chime", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-60", "pillar": "Studio Music & Audio AI", "title": "Deep Focus Binaural Warm Analog Prophet-5 Pad at 72 BPM", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-61", "pillar": "Studio Music & Audio AI", "title": "Vintage French Touch Filtered Disco Bassline & Sidechain Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-62", "pillar": "Studio Music & Audio AI", "title": "Solo Baroque Harpsichord & Chamber Strings Room Realism", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-63", "pillar": "Studio Music & Audio AI", "title": "Minimal Detroit Dub Techno Chord Delay & Tape Flutter", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-64", "pillar": "Studio Music & Audio AI", "title": "Dry Intimate Voiceover & Acoustic Bed Ducking Spec (-16 LUFS)", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}, {"id": "PROMPT-65", "pillar": "Studio Music & Audio AI", "title": "Master Bus Analog Tape Glue & Stems Frequency Separation Lock", "unlocked": false, "prompt": "[LOCKED IN 4-IN-1 MASTER VAULT] \u2014 Click to unlock all 65+ 5-Slot Blueprints, the offline vault.html web app, the drop-in prompts_context_pack.md AI Project Brain, and the 22-page Manual."}];
+    let currentPillar = 'ALL';
 
-    function updateEngineHints() {
-      const eng = document.getElementById("engineSelect").value;
-      const container = document.getElementById("presetContainer");
-      container.innerHTML = "";
-      ENGINE_DATA[eng].presets.forEach((p, idx) => {
-        const btn = document.createElement("button");
-        btn.className = "chip";
-        btn.type = "button";
-        btn.innerText = "Preset " + (idx + 1) + ": " + p.label;
-        btn.onclick = () => {
-          document.getElementById("rawIdea").value = p.idea;
-          document.getElementById("customConstraint").value = p.spec;
-          compilePrompt();
-        };
-        container.appendChild(btn);
+    function setPillar(p, btn) {
+      currentPillar = p;
+      document.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+      renderCards();
+    }
+
+    function copyPrompt(idx, btn) {
+      const item = PROMPTS[idx];
+      navigator.clipboard.writeText(item.prompt);
+      const old = btn.textContent;
+      btn.textContent = '✓ Copied 5-Slot Prompt!';
+      setTimeout(() => btn.textContent = old, 1800);
+    }
+
+    function openModal(title) {
+      document.getElementById('modalTitle').textContent = 'Unlock: ' + title;
+      document.getElementById('upgradeModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('upgradeModal').style.display = 'none';
+    }
+
+    function renderCards() {
+      const q = (document.getElementById('searchBox').value || '').toLowerCase();
+      const grid = document.getElementById('cardsGrid');
+      grid.innerHTML = '';
+      PROMPTS.forEach((item, idx) => {
+        if (currentPillar !== 'ALL' && item.pillar !== currentPillar) return;
+        if (q && !(item.title.toLowerCase().includes(q) || item.pillar.toLowerCase().includes(q) || item.prompt.toLowerCase().includes(q))) return;
+
+        const card = document.createElement('div');
+        card.className = 'card' + (item.unlocked ? '' : ' locked');
+        if (!item.unlocked) {
+          card.onclick = () => openModal(item.id + ' — ' + item.title);
+        }
+        card.innerHTML = `
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <span style="font-size:12px;color:#9CA3AF;font-weight:600;">${item.id} • ${item.pillar}</span>
+              <span class="badge ${item.unlocked ? 'badge-unlocked' : 'badge-locked'}">${item.unlocked ? 'UNLOCKED DEMO' : '🔒 PRO VAULT'}</span>
+            </div>
+            <h3 style="font-size:16px;margin-bottom:10px;">${item.title}</h3>
+            <div class="code-box">${item.unlocked ? item.prompt : '[1. Practitioner Calibration]: Locked in 4-in-1 Master Vault...\n[2. Input Receipts]: Click card to unlock all 65+ blueprints ($0 Sample or $23.20 VIP Bundle)...'}</div>
+          </div>
+          <div>
+            ${item.unlocked
+              ? `<button class="btn btn-emerald" style="width:100%;" onclick="event.stopPropagation();copyPrompt(${idx}, this)">📋 Copy 5-Slot Blueprint (1-Click)</button>`
+              : `<button class="btn btn-amber" style="width:100%;">🔓 Unlock All 65+ Blueprints ($0 Sample / $23.20 VIP) →</button>`
+            }
+          </div>
+        `;
+        grid.appendChild(card);
       });
-      compilePrompt();
     }
-
-    function compilePrompt() {
-      const eng = document.getElementById("engineSelect").value;
-      const idea = document.getElementById("rawIdea").value.trim() || "High-converting AI workflow system";
-      const spec = document.getElementById("customConstraint").value.trim();
-      const res = ENGINE_DATA[eng].compile(idea, spec);
-
-      const sb = document.getElementById("slotBreakdown");
-      sb.innerHTML = res.slots.map(([label, val]) =>
-        `<div class="slot-row"><span class="slot-num">${label}</span><span>${val}</span></div>`
-      ).join("");
-
-      document.getElementById("compiledOutput").innerText = res.full;
-      const copyBtn = document.getElementById("copyBtn");
-      copyBtn.classList.remove("copied");
-      copyBtn.innerText = "📋 COPY COMPILED 5-SLOT PROMPT";
-    }
-
-    async function copyCompiledPrompt() {
-      const text = document.getElementById("compiledOutput").innerText;
-      const btn = document.getElementById("copyBtn");
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      }
-      btn.classList.add("copied");
-      btn.innerText = "✓ COPIED TO CLIPBOARD! PASTE INTO YOUR AI MODEL";
-    }
-
-    updateEngineHints();
+    renderCards();
   </script>
 </body>
 </html>
