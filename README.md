@@ -74,6 +74,23 @@ Most operators waste their first 30 tokens on polite conversational filler (*"Pl
 
 ---
 
+## The Complete 8-Product SystemVault Storefront
+
+| # | Product | Price | Link |
+| :-: | :--- | :--- | :--- |
+| 1 | **Free 5-Part Prompt Cheat Sheet** | Free | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-free-sample) |
+| 2 | **22-Page Playbook + Web Vault** | $5.99 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-starter) |
+| 3 | **4-in-1 Master Vault** | $29 / $23.20 with ARCHITECT20 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-prompt-architect-vault-bundle/ARCHITECT20) |
+| 4 | **AI Context Engineering Vault** | $19 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-context-engineering-vault) |
+| 5 | **AI Agent & Workflow SOP Vault** | $24 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-agent-workflow-sop-vault) |
+| 6 | **Photorealistic AI Brand Studio Vault** | $19 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-photorealistic-brand-studio-vault) |
+| 7 | **Founder Copywriting & Funnel Vault** | $24 | [Open on Gumroad](https://systemvault123.gumroad.com/l/ai-founder-copywriting-funnel-vault) |
+| 8 | **SystemVault All-Access Pass** | $49 / $39.20 with ARCHITECT20 | [Open on Gumroad](https://systemvault123.gumroad.com/l/systemvault-complete-all-access-pass/ARCHITECT20) |
+
+Every paid product includes a 30-day satisfaction guarantee. Code `ARCHITECT20` = 20% off.
+
+---
+
 ## SystemVault Tier Comparison Matrix
 
 | Feature / Deliverable | Tier 1: Free Cheat Sheet ($0) | Tier 2: Starter Playbook ($5.99) | Tier 4: 4-in-1 Master Vault ($23.20 w/ `ARCHITECT20`) |
