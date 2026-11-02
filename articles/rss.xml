@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SystemVault AI Architecture Library</title>
+    <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/</link>
+    <description>15 Technical Guides on AI Prompt Systems, Context Engineering, and Autonomous Agent SOPs</description>
+    <item>
+      <title>Why 95% of AI Prompts Fail: The 5-Slot Token Architecture for Reasoning, Image, Video &amp; Audio AI</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-01.html</link>
+      <description>Why 95% of AI Prompts Fail: The 5-Slot Token Architecture for Reasoning, Image, Video &amp; Audio AI — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-01.html</guid>
+    </item>
+    <item>
+      <title>Stop Pasting PDFs into AI Projects: How .md Context Packs Cut Token Bloat by 70% and Triple Output Accuracy</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-02.html</link>
+      <description>Stop Pasting PDFs into AI Projects: How .md Context Packs Cut Token Bloat by 70% and Triple Output Accuracy — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-02.html</guid>
+    </item>
+    <item>
+      <title>The Anti-Slop Lexicon: 12 Banned Words to Strip From Your System Instructions for Executive-Grade Writing</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-03.html</link>
+      <description>The Anti-Slop Lexicon: 12 Banned Words to Strip From Your System Instructions for Executive-Grade Writing — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-03.html</guid>
+    </item>
+    <item>
+      <title>Photorealistic AI Product &amp; Editorial Photography: The 5-Slot Optical &amp; Lighting Hardware Lock</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-04.html</link>
+      <description>Photorealistic AI Product &amp; Editorial Photography: The 5-Slot Optical &amp; Lighting Hardware Lock — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-04.html</guid>
+    </item>
+    <item>
+      <title>Cinematic AI Video Directing: How to Lock Camera Rigs, Focal Lengths, and Temporal Motion Without Morphing</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-05.html</link>
+      <description>Cinematic AI Video Directing: How to Lock Camera Rigs, Focal Lengths, and Temporal Motion Without Morphing — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-05.html</guid>
+    </item>
+    <item>
+      <title>Studio Audio &amp; Music AI Engineering: Controlling Analog Tape Saturation, Stems, and Vocal Pocket</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-06.html</link>
+      <description>Studio Audio &amp; Music AI Engineering: Controlling Analog Tape Saturation, Stems, and Vocal Pocket — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-06.html</guid>
+    </item>
+    <item>
+      <title>How to Build an Offline, Zero-Install HTML/JS Prompt Command Center (vault.html Architecture Breakdown)</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-07.html</link>
+      <description>How to Build an Offline, Zero-Install HTML/JS Prompt Command Center (vault.html Architecture Breakdown) — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-07.html</guid>
+    </item>
+    <item>
+      <title>From Vague 1-Liner to Production SOP: 5 Copy-Paste Prompt Blueprints for Solo Founders &amp; Operators</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-08.html</link>
+      <description>From Vague 1-Liner to Production SOP: 5 Copy-Paste Prompt Blueprints for Solo Founders &amp; Operators — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-08.html</guid>
+    </item>
+    <item>
+      <title>The Passthrough Context Method: Turning 1 Product Brief into Executive Copy, Hero Visuals, and Video Scripts</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-09.html</link>
+      <description>The Passthrough Context Method: Turning 1 Product Brief into Executive Copy, Hero Visuals, and Video Scripts — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-09.html</guid>
+    </item>
+    <item>
+      <title>Why Roleplay Prompts (&#x27;You Are an Expert&#x27;) Stopped Working—and the 5-Slot Verification Gate That Replaced Them</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-10.html</link>
+      <description>Why Roleplay Prompts (&#x27;You Are an Expert&#x27;) Stopped Working—and the 5-Slot Verification Gate That Replaced Them — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-10.html</guid>
+    </item>
+    <item>
+      <title>Deterministic JSON &amp; CSV Extraction with Frontier Reasoning AI: The Schema-Lock Prompt Pattern</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-11.html</link>
+      <description>Deterministic JSON &amp; CSV Extraction with Frontier Reasoning AI: The Schema-Lock Prompt Pattern — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-11.html</guid>
+    </item>
+    <item>
+      <title>Consistent Brand Characters &amp; Style Transfer in Image AI: The Optical Seed &amp; Palette Matrix</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-12.html</link>
+      <description>Consistent Brand Characters &amp; Style Transfer in Image AI: The Optical Seed &amp; Palette Matrix — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-12.html</guid>
+    </item>
+    <item>
+      <title>Automated Code Architecture Reviews: A 5-Slot System Prompt for Catching Race Conditions &amp; Security Flaws</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-13.html</link>
+      <description>Automated Code Architecture Reviews: A 5-Slot System Prompt for Catching Race Conditions &amp; Security Flaws — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-13.html</guid>
+    </item>
+    <item>
+      <title>High-Converting Landing Page Copywriting with AI: Combining Cialdini Reciprocity &amp; Hormozi&#x27;s Value Equation</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-14.html</link>
+      <description>High-Converting Landing Page Copywriting with AI: Combining Cialdini Reciprocity &amp; Hormozi&#x27;s Value Equation — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-14.html</guid>
+    </item>
+    <item>
+      <title>The Solo Operator&#x27;s AI Context Stack: Structuring .md and .csv Knowledge Bases for Zero-Hallucination Output</title>
+      <link>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-15.html</link>
+      <description>The Solo Operator&#x27;s AI Context Stack: Structuring .md and .csv Knowledge Bases for Zero-Hallucination Output — SystemVault 5-Slot Architecture Blueprint</description>
+      <guid>https://bryanargani1803.github.io/systemvault-prompt-compiler/articles/article-15.html</guid>
+    </item>
+  </channel>
+</rss>
